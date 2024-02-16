@@ -146,7 +146,6 @@ document.getElementById('addTaskBtn').addEventListener('click', function () {
     let taskDescription = document.getElementById('taskDescription');
     let taskText = taskInput.value.trim();
     let taskDescriptionText = taskDescription.value.trim();
-    console.log(todoList)
 
     // Get elements related to tasks count and animation
     let tasksCount = document.querySelectorAll('.all-count');
@@ -167,7 +166,9 @@ document.getElementById('addTaskBtn').addEventListener('click', function () {
 });
 // Show All Taksk
 showAllBtn.addEventListener('click', function () {
+    const tabsBox = document.querySelector('.todo-tabs')
     todoList.displayTasks();
+    removedataIndex(tabsBox)
     removeActiveClass();
     this.classList.add('active');
 });
@@ -192,5 +193,4 @@ showActiveBtn.addEventListener('click', function () {
 // Create an instance of ToDoList
 let todoList = new ToDoList();
 
-console.log(todoList)
 
