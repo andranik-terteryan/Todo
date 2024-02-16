@@ -1,0 +1,72 @@
+@use "sass:math";
+@mixin fontRem($size, $weight: 400, $lineHeight: initial) {
+  font-size: math.div($size, 16) + rem;
+  font-weight: $weight ;
+  @if ($lineHeight == initial) {
+    line-height: $lineHeight ;
+  } @else {
+    line-height: math.div($lineHeight, $size);
+  }
+}
+// Flex alignment
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-center-horiz {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+// Flex alignment end
+
+// absolute positing
+@mixin absoluteCenter($position) {
+  position: absolute;
+  @if $position == "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  } @else if $position == "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+// absolute positing end
+
+// Button Nulled
+@mixin buttonNulled {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+// Button Nulled end
