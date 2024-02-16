@@ -113,6 +113,7 @@ body {
 
 .hero-section {
   margin-top: -27px;
+  padding-bottom: 27px;
 }
 .hero-section .todo-form {
   display: flex;
@@ -129,7 +130,15 @@ body {
   max-width: calc(100% - 84px);
   padding-right: 8px;
 }
-.hero-section .todo-form .input-overlay input, .hero-section .todo-form .input-overlay textarea {
+@media only screen and (max-width: 576px) {
+  .hero-section .todo-form .input-overlay {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0px;
+  }
+}
+.hero-section .todo-form .input-overlay input,
+.hero-section .todo-form .input-overlay textarea {
   display: block;
   width: 100%;
   max-width: 100%;
@@ -149,6 +158,21 @@ body {
   max-height: 100px;
   margin-top: 15px;
 }
+@media only screen and (max-width: 576px) {
+  .hero-section .todo-form .input-overlay textarea {
+    margin-top: 5px;
+  }
+}
+.hero-section .todo-form .button-overlay {
+  position: relative;
+}
+@media only screen and (max-width: 576px) {
+  .hero-section .todo-form .button-overlay {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5px;
+  }
+}
 .hero-section .todo-form .button-overlay button {
   padding: 0;
   background-color: transparent;
@@ -165,8 +189,10 @@ body {
   border-radius: 8px;
   background-color: #1e6f9f;
   height: 100%;
+  max-width: 100%;
+  width: 100%;
 }
-.hero-section .todo-form .button-overlay button::after {
+.hero-section .todo-form .button-overlay::after {
   content: " ";
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_2105_44)'%3E%3Cpath d='M7.98373 1.45158C9.27565 1.45158 10.5386 1.83468 11.6128 2.55244C12.687 3.27019 13.5242 4.29037 14.0186 5.48395C14.513 6.67754 14.6424 7.99092 14.3903 9.25802C14.1383 10.5251 13.5161 11.689 12.6026 12.6026C11.6891 13.5161 10.5252 14.1382 9.25807 14.3903C7.99097 14.6423 6.67759 14.5129 5.484 14.0185C4.29042 13.5241 3.27025 12.6869 2.55249 11.6127C1.83473 10.5385 1.45163 9.2756 1.45163 7.98368C1.45832 6.25332 2.14867 4.59574 3.37223 3.37218C4.59579 2.14862 6.25337 1.45827 7.98373 1.45158ZM7.98373 5.77648e-06C6.40611 0.00645971 4.86578 0.480174 3.55717 1.36134C2.24857 2.24252 1.23037 3.49164 0.631106 4.95102C0.031846 6.4104 -0.121605 8.01461 0.190125 9.56114C0.501855 11.1077 1.26479 12.5272 2.38262 13.6404C3.50044 14.7537 4.92304 15.5108 6.47082 15.8162C8.01861 16.1217 9.62218 15.9617 11.0791 15.3564C12.536 14.7512 13.781 13.7279 14.6568 12.4158C15.5326 11.1036 16 9.5613 16.0001 7.98368C16.0001 6.93249 15.7925 5.89165 15.3892 4.92089C14.986 3.95014 14.395 3.06857 13.6502 2.32679C12.9053 1.58501 12.0214 0.997618 11.049 0.598327C10.0766 0.199035 9.0349 -0.00429452 7.98373 5.77648e-06Z' fill='%23F2F2F2'/%3E%3Cpath d='M11.707 7.38127H8.4954V4.16966H7.41397V7.38127H4.19873V8.4627H7.41397V11.6743H8.4954V8.4627H11.707V7.38127Z' fill='%23F2F2F2'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2105_44'%3E%3Crect width='16' height='16' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
   width: 16px;
@@ -178,12 +204,20 @@ body {
   transform: translateY(-50%);
   right: 16px;
 }
-.hero-section .todo-tabs {
+
+.todo-tabs {
   padding-top: 32px;
   display: flex;
   flex-wrap: wrap;
 }
-.hero-section .todo-tabs button {
+@media only screen and (max-width: 576px) {
+  .todo-tabs {
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding-top: 16px;
+  }
+}
+.todo-tabs button {
   padding: 0;
   background-color: transparent;
   border: none;
@@ -197,13 +231,14 @@ body {
   max-width: 150px;
   width: 100%;
 }
-.hero-section .todo-tabs button:not(:last-child) {
+.todo-tabs button:not(:last-child) {
   margin-right: 10px;
 }
-.hero-section .todo-tabs button.active {
+.todo-tabs button.active {
   background-color: rgba(255, 255, 255, 0.4);
 }
-.hero-section .todo-info-panel {
+
+.todo-info-panel {
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
@@ -211,18 +246,23 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.hero-section .todo-info-panel .all-todos-count span:not(.count) {
+@media only screen and (max-width: 576px) {
+  .todo-info-panel {
+    margin-top: 16px;
+  }
+}
+.todo-info-panel .all-todos-count span:not(.count) {
   color: #4ea8de;
 }
-.hero-section .todo-info-panel .done-todos-count span:not(.count, .count span) {
+.todo-info-panel .done-todos-count span:not(.count, .count span) {
   color: #8284fa;
 }
-.hero-section .todo-info-panel span:not(.count, .count span) {
+.todo-info-panel span:not(.count, .count span) {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.1428571429;
 }
-.hero-section .todo-info-panel .count {
+.todo-info-panel .count {
   padding: 2px 8px;
   color: #fff;
   font-size: 0.75rem;
@@ -231,10 +271,11 @@ body {
   background-color: #333333;
   border-radius: 8px;
 }
-.hero-section .todo-list {
+
+.todo-list {
   margin-top: 24px;
 }
-.hero-section .todo-list ul li {
+.todo-list ul li {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -247,10 +288,21 @@ body {
   line-height: 1.1428571429;
   color: #fff;
 }
-.hero-section .todo-list ul li:not(:first-child) {
+@media only screen and (max-width: 576px) {
+  .todo-list ul li {
+    padding: 8px 30px;
+    gap: 3px;
+  }
+}
+.todo-list ul li:not(:first-child) {
   margin-top: 15px;
 }
-.hero-section .todo-list ul li input {
+@media only screen and (max-width: 576px) {
+  .todo-list ul li:not(:first-child) {
+    margin-top: 5px;
+  }
+}
+.todo-list ul li input {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -261,7 +313,7 @@ body {
   display: grid;
   z-index: 99;
 }
-.hero-section .todo-list ul li input:before {
+.todo-list ul li input:before {
   content: "";
   width: 24px;
   height: 24px;
@@ -273,10 +325,10 @@ body {
   transform: translate(-50%, -50%);
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9643 4.85958C13.3765 4.85958 14.7571 5.27836 15.9313 6.06297C17.1056 6.84757 18.0208 7.96277 18.5612 9.26752C19.1017 10.5723 19.2431 12.008 18.9676 13.3931C18.6921 14.7782 18.012 16.0505 17.0134 17.0492C16.0148 18.0478 14.7424 18.7278 13.3573 19.0034C11.9722 19.2789 10.5365 19.1375 9.23173 18.597C7.92697 18.0566 6.81178 17.1414 6.02717 15.9671C5.24257 14.7929 4.82378 13.4123 4.82378 12.0001C4.8311 10.1085 5.58574 8.29658 6.92326 6.95906C8.26079 5.62154 10.0728 4.86689 11.9643 4.85958ZM11.9643 3.2728C10.2397 3.27986 8.55592 3.79769 7.12543 4.76093C5.69494 5.72418 4.58191 7.08964 3.92683 8.68495C3.27176 10.2803 3.10401 12.0339 3.44478 13.7245C3.78554 15.415 4.61954 16.9667 5.84148 18.1837C7.06342 19.4007 8.61852 20.2283 10.3105 20.5622C12.0024 20.896 13.7553 20.7211 15.348 20.0595C16.9406 19.398 18.3015 18.2794 19.2589 16.845C20.2163 15.4105 20.7272 13.7246 20.7273 12.0001C20.7273 10.851 20.5003 9.7132 20.0595 8.65202C19.6187 7.59085 18.9727 6.62717 18.1585 5.8163C17.3443 5.00543 16.378 4.36333 15.315 3.92685C14.2521 3.49037 13.1134 3.2681 11.9643 3.2728Z' fill='%234EA8DE'/%3E%3C/svg%3E");
 }
-.hero-section .todo-list ul li input:checked::before {
+.todo-list ul li input:checked::before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.9'%3E%3Cpath d='M11.9801 19.4262C16.0726 19.4262 19.3903 16.1085 19.3903 12.0159C19.3903 7.92336 16.0726 4.60568 11.9801 4.60568C7.8875 4.60568 4.56982 7.92336 4.56982 12.0159C4.56982 16.1085 7.8875 19.4262 11.9801 19.4262Z' fill='%235E60CE'/%3E%3Cpath d='M11.9643 4.85957C13.3765 4.85957 14.7571 5.27835 15.9313 6.06296C17.1056 6.84757 18.0208 7.96276 18.5612 9.26752C19.1017 10.5723 19.2431 12.008 18.9676 13.3931C18.6921 14.7782 18.012 16.0505 17.0134 17.0492C16.0148 18.0478 14.7424 18.7278 13.3573 19.0034C11.9722 19.2789 10.5365 19.1375 9.23173 18.597C7.92697 18.0566 6.81178 17.1414 6.02717 15.9671C5.24257 14.7929 4.82378 13.4123 4.82378 12.0001C4.8311 10.1085 5.58574 8.29657 6.92326 6.95905C8.26079 5.62153 10.0728 4.86688 11.9643 4.85957ZM11.9643 3.27279C10.2397 3.27985 8.55592 3.79768 7.12543 4.76093C5.69494 5.72417 4.58191 7.08964 3.92683 8.68495C3.27176 10.2803 3.10401 12.0339 3.44478 13.7245C3.78554 15.415 4.61954 16.9667 5.84148 18.1837C7.06342 19.4006 8.61852 20.2283 10.3105 20.5622C12.0024 20.896 13.7553 20.7211 15.348 20.0595C16.9406 19.398 18.3015 18.2794 19.2589 16.8449C20.2163 15.4105 20.7272 13.7246 20.7273 12.0001C20.7273 10.851 20.5003 9.71319 20.0595 8.65202C19.6187 7.59084 18.9727 6.62716 18.1585 5.81629C17.3443 5.00542 16.378 4.36332 15.315 3.92684C14.2521 3.49036 13.1134 3.26809 11.9643 3.27279Z' fill='%235E60CE'/%3E%3Cpath d='M15.4306 9.34212L11.0986 13.6741L8.61618 11.1916L7.78027 12.0275L11.0986 15.3459L16.2665 10.178L15.4306 9.34212Z' fill='%23F2F2F2'/%3E%3C/g%3E%3C/svg%3E");
 }
-.hero-section .todo-list ul li .delete-icon {
+.todo-list ul li .delete-icon {
   padding: 0;
   background-color: transparent;
   border: none;
@@ -375,6 +427,13 @@ body {
   100% {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
+  }
+}
+@media only screen and (max-width: 576px) {
+  .input-overlay {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0px;
   }
 }
 
