@@ -313,6 +313,11 @@ body {
   display: grid;
   z-index: 99;
 }
+@media only screen and (max-width: 576px) {
+  .todo-list ul li input {
+    left: 12px;
+  }
+}
 .todo-list ul li input:before {
   content: "";
   width: 24px;
@@ -427,13 +432,6 @@ body {
   100% {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
-  }
-}
-@media only screen and (max-width: 576px) {
-  .input-overlay {
-    width: 100%;
-    max-width: 100%;
-    padding-right: 0px;
   }
 }
 
